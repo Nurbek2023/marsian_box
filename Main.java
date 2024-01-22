@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Main
 {
-// Nurbek apandi
+
 	public static void main(String[] args) {
 	    Scanner scanner = new Scanner(System.in);
 	    Random random = new Random();
@@ -38,6 +38,7 @@ public class Main
 	            for(int i = 1; i <= 3; i++){
 	                System.out.println("Enter a possible number " + i);
 	                int guess = scanner.nextInt();
+
 	                for (int j = 0; j < boxesLocation.size(); j++){
 	                    if(guess == boxesLocation.get(j)){
 	                        boxesLocation.remove(j);
@@ -45,6 +46,7 @@ public class Main
 	                    }
 	                }
 	            }
+				clearScreen();
 	            l--;
 	            System.out.println("Guessed Boxes is : " + guessedBoxes);
 	            System.out.println("Your attempt is "+l);
@@ -52,6 +54,7 @@ public class Main
 	        }
 	        
 	        if(l == 5 || guessedBoxes != 3){
+				clearScreen();
 	            System.out.println("\nunfortunately our boxes found out");
 	            System.out.println("that we were trying to find them and");
 	            System.out.println("so they ran away");
@@ -60,6 +63,11 @@ public class Main
 	    
 	    
 	    
+	}
+	private static void clearScreen(){
+		System.out.println("\033[H\033[2J");
+		System.out.flush();
+
 	}
 	
 }
